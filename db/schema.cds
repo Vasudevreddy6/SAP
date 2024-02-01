@@ -1,9 +1,7 @@
 namespace com.satinfotech.studentdb;
-using { managed, cuid } from '@sap/cds/common';
+using { cuid, managed } from '@sap/cds/common';
 
-@assert.unique:{
-    stdid:[stdid]
-}
+@assert.unique.stdid: [stdid]
 entity Student: cuid, managed {
     @title: 'Student ID'
     stdid: String(5);
@@ -17,25 +15,22 @@ entity Student: cuid, managed {
     email_id: String(100) @mandatory;
     @title: 'Date of Birth'
     dob: Date @mandatory;
-
-    // Corrected Composition for Books
-    @title: 'Books details'
-    Books: Composition of many {
-        key ID: UUID;
-        @title: 'Book'
-        book: Association to Books;
-    }
-
+    @title: 'PAN'
+    pan_no: String(10) @mandatory;
     @title: 'Course'
     course: Association to Courses;
     @title: 'Languages Known'
     Languages: Composition of many {
         key ID: UUID;
-        @title: 'Languages'
         lang: Association to Languages;
-    }
+    };
     @title: 'Age'
     virtual age: Integer @Core.Computed;
+}
+
+entity StudentLanguages: managed, cuid {
+    studentid: Association to Student;
+    langid: Association to Languages;
 }
 
 @cds.persistence.skip
@@ -46,11 +41,16 @@ entity Gender {
     description: String(10);
 }
 
-entity Courses : cuid, managed {
+entity Courses: cuid, managed {
     @title: 'Code'
     code: String(3);
     @title: 'Description'
     description: String(50);
+    @title: 'Books'
+    Books: Composition of many {
+        key ID: UUID;
+        books: Association to Books;
+    };
 }
 
 entity Languages: cuid, managed {
@@ -61,8 +61,8 @@ entity Languages: cuid, managed {
 }
 
 entity Books: cuid, managed {
-    @title: 'code'
-    code: String(10);
-    @title: 'description'
-    description: String(50);
+    @title: 'Code'
+    code: String(5);
+    @title: 'Description'
+    description: String(200);
 }

@@ -1,3 +1,7 @@
-ID,code,description
-9e763167-c1ba-43e2-a8c3-686f9b133193,DM1,DataMining
-e461441c-0d1d-4965-af0a-2615ed7410a0,CNS1,Networksecurity
+ID,code,description,
+fb554576-266b-4644-9552-9a3d329b8682,IOT,Internet of Things
+a6c8bc0b-83c4-477d-9333-c7fe4e1de316,WP,Web Programming
+65f8f2da-78fe-4cb0-9327-e8221147ebca,SE,Software Engineering
+23fa941d-b828-4457-a550-4094cc72701d,DC,Digital Circuits
+9855b4d9-ce5d-40e7-b5b1-b88f20f2f181,DM,Data Mining
+b9ec9b1d-283f-4bff-a6ab-96eef6520700,CC,Cloud Computing
