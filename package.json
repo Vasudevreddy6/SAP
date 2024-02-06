@@ -20,6 +20,10 @@
     "watch-books": "cds watch --open books/webapp/index.html?sap-ui-xx-viewCache=false"
   },
   "cds": {
+    "fiori": {
+      "lean_draft": true,
+      "bypass_draft": true
+    },
     "requires": {
       "db": {
         "kind": "sqlite",

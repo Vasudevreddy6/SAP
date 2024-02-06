@@ -224,6 +224,9 @@ annotate StudentDB.Student with @(
         {
             Value: course.code
         },
+        {
+            Value: is_alumni
+        },
     ],
     UI.SelectionFields: [first_name, last_name, email_id],
     UI.FieldGroup #StudentInformation: {
